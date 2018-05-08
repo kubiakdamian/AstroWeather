@@ -1,85 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="top"
-    android:background="@color/sunFragmentBackground">
+    android:background="@color/moonFragmentBackground">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="150dp"
         android:layout_gravity="center"
-        android:src="@drawable/sun"
+        android:src="@drawable/moon"
         android:layout_marginTop="10dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Sun"
+        android:text="Moon"
+        android:textColor="#fff"
         android:textSize="30sp"
         android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/sunriseid"
+        android:id="@+id/moonriseid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Sunrise"
-        android:textColor="#000"
+        android:text="Moonrise:"
+        android:textColor="#fff"
         android:textSize="25sp">
     </TextView>
 
     <TextView
-        android:id="@+id/sunriseazimuthid"
+        android:id="@+id/moonsetid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Sunrise azimuth:"
-        android:textColor="#000"
+        android:text="Moonrise:"
+        android:textColor="#fff"
         android:textSize="25sp">
     </TextView>
 
     <TextView
-        android:id="@+id/sunsetid"
+        android:id="@+id/newmoonid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Sunset:"
-        android:textColor="#000"
+        android:text="Moonrise:"
+        android:textColor="#fff"
         android:textSize="25sp">
     </TextView>
 
     <TextView
-        android:id="@+id/sunsetazimuthid"
+        android:id="@+id/fullmoonid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Sunset azimuth:"
-        android:textColor="#000"
+        android:text="Moonrise:"
+        android:textColor="#fff"
         android:textSize="25sp">
     </TextView>
 
     <TextView
-        android:id="@+id/twilightid"
+        android:id="@+id/moonphaseid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Twilight:"
-        android:textColor="#000"
+        android:text="Moonrise:"
+        android:textColor="#fff"
         android:textSize="25sp">
     </TextView>
 
     <TextView
-        android:id="@+id/dawnid"
+        android:id="@+id/dayofmonthid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Dawn:"
-        android:textColor="#000"
+        android:text="Moonrise:"
+        android:textColor="#fff"
         android:textSize="25sp">
     </TextView>
-
-
 
 </LinearLayout>

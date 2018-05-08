@@ -2,13 +2,83 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:gravity="top"
+    android:background="@color/moonFragmentBackground">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:src="@drawable/moon"
+        android:layout_marginTop="10dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="Moon"
-        android:textSize="20sp"
+        android:textColor="#fff"
+        android:textSize="30sp"
         android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/moonriseid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Moonrise:"
+        android:textColor="#fff"
+        android:textSize="25sp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/moonsetid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Moonrise:"
+        android:textColor="#fff"
+        android:textSize="25sp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/newmoonid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Moonrise:"
+        android:textColor="#fff"
+        android:textSize="25sp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/fullmoonid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Moonrise:"
+        android:textColor="#fff"
+        android:textSize="25sp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/moonphaseid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Moonrise:"
+        android:textColor="#fff"
+        android:textSize="25sp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/dayofmonthid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Moonrise:"
+        android:textColor="#fff"
+        android:textSize="25sp">
+    </TextView>
 
 </LinearLayout>
