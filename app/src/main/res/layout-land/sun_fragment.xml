@@ -4,80 +4,97 @@
     android:layout_height="match_parent"
     android:background="@color/sunFragmentBackground">
 
-    <ImageView
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
-        android:src="@drawable/sun"
-        android:layout_marginTop="10dp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
 
-    <TextView
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:src="@drawable/sun"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Sun"
+            android:textSize="30sp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Sun"
-        android:textSize="30sp"
-        android:textStyle="bold"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
 
-    <TextView
-        android:id="@+id/sunriseid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Sunrise"
-        android:textColor="#000"
-        android:textSize="25sp">
-    </TextView>
+        <TextView
+            android:id="@+id/sunriseid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Sunrise"
+            android:textColor="#000"
+            android:textSize="25sp"
+            android:layout_gravity="left" />
 
-    <TextView
-        android:id="@+id/sunriseazimuthid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Sunrise azimuth:"
-        android:textColor="#000"
-        android:textSize="25sp">
-    </TextView>
 
-    <TextView
-        android:id="@+id/sunsetid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Sunset:"
-        android:textColor="#000"
-        android:textSize="25sp">
-    </TextView>
+        <TextView
+            android:id="@+id/sunriseazimuthid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Sunrise azimuth:"
+            android:textColor="#000"
+            android:textSize="25sp">
+        </TextView>
 
-    <TextView
-        android:id="@+id/sunsetazimuthid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Sunset azimuth:"
-        android:textColor="#000"
-        android:textSize="25sp">
-    </TextView>
+        <TextView
+            android:id="@+id/sunsetid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Sunset:"
+            android:textColor="#000"
+            android:textSize="25sp">
+        </TextView>
 
-    <TextView
-        android:id="@+id/twilightid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Twilight:"
-        android:textColor="#000"
-        android:textSize="25sp">
-    </TextView>
+        <TextView
+            android:id="@+id/sunsetazimuthid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Sunset azimuth:"
+            android:textColor="#000"
+            android:textSize="25sp">
+        </TextView>
 
-    <TextView
-        android:id="@+id/dawnid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Dawn:"
-        android:textColor="#000"
-        android:textSize="25sp">
-    </TextView>
+        <TextView
+            android:id="@+id/twilightid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Twilight:"
+            android:textColor="#000"
+            android:textSize="25sp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/dawnid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Dawn:"
+            android:textColor="#000"
+            android:textSize="25sp">
+        </TextView>
+    </LinearLayout>
+
 
 
 

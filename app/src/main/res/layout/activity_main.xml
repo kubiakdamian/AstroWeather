@@ -17,6 +17,12 @@
         app:tabIndicatorColor="@color/tabindicatorcolor"
         android:background="@color/colorPrimary" />
 
+    <fragment
+        android:id="@+id/time_fragment"
+        android:name="com.example.damian.astroweather.TimeFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
