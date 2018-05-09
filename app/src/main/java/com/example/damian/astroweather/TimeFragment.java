@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.astrocalculator.AstroCalculator;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.TimeZone;
@@ -15,19 +17,24 @@ import java.util.TimeZone;
 public class TimeFragment extends Fragment {
 
     private TextView timer;
+    private TextView coordinates;
     private Handler mHandler;
+    private SunInfo info;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.time_fragment, container, false);
-        initTime(view);
+        info = new SunInfo();
+        init(view);
+        setCoordinates();
         return view;
     }
 
-    void initTime(View view) {
+    void init(View view) {
         timer = view.findViewById(R.id.time);
         this.mHandler = new Handler();
         this.mHandler.postDelayed(m_Runnable, 2000);
+        coordinates = view.findViewById(R.id.coordinates);
     }
 
     private final Runnable m_Runnable = new Runnable() {
@@ -37,4 +44,8 @@ public class TimeFragment extends Fragment {
             TimeFragment.this.mHandler.postDelayed(m_Runnable, 1000);
         }
     };
+
+    private void setCoordinates(){
+        coordinates.setText("Lat:" + String.valueOf(info.getLocation().getLatitude()) + " Lon: " + String.valueOf(info.getLocation().getLongitude()));
+    }
 }

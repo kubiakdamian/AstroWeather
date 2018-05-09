@@ -9,6 +9,7 @@ public class SunInfo {
 
     private AstroCalculator astroCalculator;
     private AstroCalculator.SunInfo sunInfo;
+    private AstroCalculator.Location location;
 
     public SunInfo() {
         Calendar calendar = Calendar.getInstance();
@@ -22,7 +23,7 @@ public class SunInfo {
         astroDateTime.setTimezoneOffset((calendar.get(Calendar.ZONE_OFFSET) + calendar.get(Calendar.DST_OFFSET)) / (3600 * 1000));
         astroDateTime.setDaylightSaving(false);
 
-        AstroCalculator.Location location = new AstroCalculator.Location(52, 21);
+        location = new AstroCalculator.Location(52, 21);
         astroCalculator = new AstroCalculator(astroDateTime, location);
         astroCalculator.setDateTime(astroDateTime);
         astroCalculator.setLocation(location);
@@ -51,6 +52,10 @@ public class SunInfo {
 
     public AstroDateTime getTwilightMorning() {
         return sunInfo.getTwilightMorning();
+    }
+
+    public AstroCalculator.Location getLocation() {
+        return location;
     }
 
 }

@@ -46,17 +46,17 @@ public class SunFragment extends Fragment {
     private void setData(){
         String temp;
         temp = String.valueOf(sunInfo.getSunrise());
-        sunrise.setText("Sunrise:       " + temp.substring(0, temp.length() - 6));
+        sunrise.setText("Sunrise:        " + temp.substring(0, temp.length() - 6));
         temp = String.valueOf(sunInfo.getAzimuthRise());
         sunriseAzimuth.setText("Azimuth:      " + temp);
         temp = String.valueOf(sunInfo.getSunset());
-        sunset.setText("Sunset:       " + temp.substring(0, temp.length() - 6));
+        sunset.setText("Sunset:         " + temp.substring(0, temp.length() - 6));
         temp = String.valueOf(sunInfo.getAzimuthSet());
         sunsetAzimuth.setText("Azimuth:      " + temp);
         temp = String.valueOf(sunInfo.getTwilightEvening());
         twilight.setText("Twilight:       " + temp.substring(0, temp.length() - 6));
         temp = String.valueOf(sunInfo.getTwilightMorning());
-        dawn.setText("Dawn:       " + temp.substring(0, temp.length() - 6));
+        dawn.setText("Dawn:           " + temp.substring(0, temp.length() - 6));
 
     }
 }
