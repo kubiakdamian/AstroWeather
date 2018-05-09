@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tabLayout = findViewById(R.id.tablelayoutid);
-
         if(!getResources().getBoolean(R.bool.isTablet)){
             setAdapter();
         }
