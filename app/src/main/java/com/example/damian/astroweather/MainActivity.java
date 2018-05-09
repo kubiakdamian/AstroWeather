@@ -17,6 +17,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tabLayout = findViewById(R.id.tablelayoutid);
+
+        if(!getResources().getBoolean(R.bool.isTablet)){
+            setAdapter();
+        }
+    }
+
+    private void setAdapter(){
         viewPager = findViewById(R.id.viewpagerid);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new SunFragment(), "Sun");
@@ -24,6 +31,5 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
-
     }
 }
