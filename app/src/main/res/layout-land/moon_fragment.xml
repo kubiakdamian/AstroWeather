@@ -30,70 +30,125 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:stretchColumns="1"
         android:gravity="center">
-    <TextView
-        android:id="@+id/moonriseid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Moonrise:"
-        android:textColor="#fff"
-        android:textSize="25sp">
-    </TextView>
 
-    <TextView
-        android:id="@+id/moonsetid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Moonrise:"
-        android:textColor="#fff"
-        android:textSize="25sp">
-    </TextView>
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Moonrise:"
+                android:textColor="#fff"
+                android:textSize="25sp"/>
 
-    <TextView
-        android:id="@+id/newmoonid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Moonrise:"
-        android:textColor="#fff"
-        android:textSize="25sp">
-    </TextView>
+            <TextView
+                android:id="@+id/moonriseid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#fff"
+                android:textSize="25sp"
+                android:gravity="end"/>
+        </TableRow>
 
-    <TextView
-        android:id="@+id/fullmoonid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Moonrise:"
-        android:textColor="#fff"
-        android:textSize="25sp">
-    </TextView>
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Moonset:"
+                android:textColor="#fff"
+                android:textSize="25sp"/>
 
-    <TextView
-        android:id="@+id/moonphaseid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Moonrise:"
-        android:textColor="#fff"
-        android:textSize="25sp">
-    </TextView>
+            <TextView
+                android:id="@+id/moonsetid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#fff"
+                android:textSize="25sp"
+                android:gravity="end"/>
+        </TableRow>
 
-    <TextView
-        android:id="@+id/dayofmonthid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Moonrise:"
-        android:textColor="#fff"
-        android:textSize="25sp">
-    </TextView>
-    </LinearLayout>
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="New moon:"
+                android:textColor="#fff"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/newmoonid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#fff"
+                android:textSize="25sp"
+                android:gravity="end"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Full moon:"
+                android:textColor="#fff"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/fullmoonid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#fff"
+                android:textSize="25sp"
+                android:gravity="end"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Phase:"
+                android:textColor="#fff"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/moonphaseid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#fff"
+                android:textSize="25sp"
+                android:gravity="end"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Month day:"
+                android:textColor="#fff"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/dayofmonthid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#fff"
+                android:textSize="25sp"
+                android:gravity="end"/>
+        </TableRow>
+    </TableLayout>
 
 </LinearLayout>

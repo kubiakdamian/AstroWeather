@@ -21,70 +21,125 @@
         android:textSize="50sp"
         android:textStyle="bold"/>
 
-    <TextView
-        android:id="@+id/moonriseid"
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Moonrise:"
-        android:textColor="#fff"
-        android:textSize="25sp"
-        android:gravity="center">
-    </TextView>
+        android:layout_height="match_parent"
+        android:stretchColumns="1"
+        android:layout_marginLeft="150dp">
 
-    <TextView
-        android:id="@+id/moonsetid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Moonrise:"
-        android:textColor="#fff"
-        android:textSize="25sp"
-        android:gravity="center">
-    </TextView>
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Moonrise:"
+                android:textColor="#fff"
+                android:textSize="25sp"/>
 
-    <TextView
-        android:id="@+id/newmoonid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Moonrise:"
-        android:textColor="#fff"
-        android:textSize="25sp"
-        android:gravity="center">
-    </TextView>
+            <TextView
+                android:id="@+id/moonriseid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#fff"
+                android:textSize="25sp"
+                android:gravity="center"/>
+        </TableRow>
 
-    <TextView
-        android:id="@+id/fullmoonid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Moonrise:"
-        android:textColor="#fff"
-        android:textSize="25sp"
-        android:gravity="center">
-    </TextView>
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Moonset:"
+                android:textColor="#fff"
+                android:textSize="25sp"/>
 
-    <TextView
-        android:id="@+id/moonphaseid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Moonrise:"
-        android:textColor="#fff"
-        android:textSize="25sp"
-        android:gravity="center">
-    </TextView>
+            <TextView
+                android:id="@+id/moonsetid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#fff"
+                android:textSize="25sp"
+                android:gravity="center"/>
+        </TableRow>
 
-    <TextView
-        android:id="@+id/dayofmonthid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Moonrise:"
-        android:textColor="#fff"
-        android:textSize="25sp"
-        android:gravity="center">
-    </TextView>
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="New moon:"
+                android:textColor="#fff"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/newmoonid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#fff"
+                android:textSize="25sp"
+                android:gravity="center"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Full moon:"
+                android:textColor="#fff"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/fullmoonid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#fff"
+                android:textSize="25sp"
+                android:gravity="center"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Phase:"
+                android:textColor="#fff"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/moonphaseid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#fff"
+                android:textSize="25sp"
+                android:gravity="center"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Month day:"
+                android:textColor="#fff"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/dayofmonthid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#fff"
+                android:textSize="25sp"
+                android:gravity="center"/>
+        </TableRow>
+    </TableLayout>
 
 </LinearLayout>

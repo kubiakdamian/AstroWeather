@@ -47,17 +47,17 @@ public class SunFragment extends Fragment implements SunInfoCallback {
     private void setData(){
         String temp;
         temp = String.valueOf(sunInfo.getSunrise());
-        sunrise.setText("Sunrise:        " + temp.substring(0, temp.length() - 6));
+        sunrise.setText(temp.substring(0, temp.length() - 6));
         temp = String.valueOf(sunInfo.getAzimuthRise());
-        sunriseAzimuth.setText("Azimuth:      " + temp);
+        sunriseAzimuth.setText(temp);
         temp = String.valueOf(sunInfo.getSunset());
-        sunset.setText("Sunset:         " + temp.substring(0, temp.length() - 6));
+        sunset.setText(temp.substring(0, temp.length() - 6));
         temp = String.valueOf(sunInfo.getAzimuthSet());
-        sunsetAzimuth.setText("Azimuth:      " + temp);
+        sunsetAzimuth.setText(temp);
         temp = String.valueOf(sunInfo.getTwilightEvening());
-        twilight.setText("Twilight:       " + temp.substring(0, temp.length() - 6));
+        twilight.setText(temp.substring(0, temp.length() - 6));
         temp = String.valueOf(sunInfo.getTwilightMorning());
-        dawn.setText("Dawn:           " + temp.substring(0, temp.length() - 6));
+        dawn.setText(temp.substring(0, temp.length() - 6));
     }
 
     @Override

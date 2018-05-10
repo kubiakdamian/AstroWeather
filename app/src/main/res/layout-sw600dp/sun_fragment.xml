@@ -20,71 +20,126 @@
         android:textSize="50sp"
         android:textStyle="bold"/>
 
-    <TextView
-        android:id="@+id/sunriseid"
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Sunrise"
-        android:textColor="#000"
-        android:textSize="25sp"
-        android:gravity="center">
-    </TextView>
+        android:layout_height="match_parent"
+        android:stretchColumns="1"
+        android:layout_marginLeft="150dp">
 
-    <TextView
-        android:id="@+id/sunriseazimuthid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Sunrise azimuth:"
-        android:textColor="#000"
-        android:textSize="25sp"
-        android:gravity="center">
-    </TextView>
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Sunrise"
+                android:textColor="#000"
+                android:textSize="25sp"/>
 
-    <TextView
-        android:id="@+id/sunsetid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Sunset:"
-        android:textColor="#000"
-        android:textSize="25sp"
-        android:gravity="center">
-    </TextView>
+            <TextView
+                android:id="@+id/sunriseid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#000"
+                android:textSize="25sp"
+                android:gravity="center"/>
+        </TableRow>
 
-    <TextView
-        android:id="@+id/sunsetazimuthid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Sunset azimuth:"
-        android:textColor="#000"
-        android:textSize="25sp"
-        android:gravity="center">
-    </TextView>
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Azimuth:"
+                android:textColor="#000"
+                android:textSize="25sp"/>
 
-    <TextView
-        android:id="@+id/twilightid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Twilight:"
-        android:textColor="#000"
-        android:textSize="25sp"
-        android:gravity="center">
-    </TextView>
+            <TextView
+                android:id="@+id/sunriseazimuthid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#000"
+                android:textSize="25sp"
+                android:gravity="center"/>
+        </TableRow>
 
-    <TextView
-        android:id="@+id/dawnid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Dawn:"
-        android:textColor="#000"
-        android:textSize="25sp"
-        android:gravity="center">
-    </TextView>
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Sunset:"
+                android:textColor="#000"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/sunsetid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#000"
+                android:textSize="25sp"
+                android:gravity="center"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Azimuth:"
+                android:textColor="#000"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/sunsetazimuthid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#000"
+                android:textSize="25sp"
+                android:gravity="center"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Twilight:"
+                android:textColor="#000"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/twilightid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#000"
+                android:textSize="25sp"
+                android:gravity="center"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Dawn:"
+                android:textColor="#000"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/dawnid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#000"
+                android:textSize="25sp"
+                android:gravity="center"/>
+        </TableRow>
+    </TableLayout>
 
 
 

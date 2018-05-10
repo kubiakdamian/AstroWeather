@@ -2,7 +2,6 @@ package com.example.damian.astroweather;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -45,7 +44,7 @@ public class Settings extends AppCompatActivity {
         buttonSave = findViewById(R.id.buttonsave);
     }
 
-    private void setDefaultSpinner(){
+    private void setSpinnerValues(){
         if(sunInfo.getTimeInterval() == 5000){
             refreshTimeSpinner.setSelection(0);
         }else if(sunInfo.getTimeInterval() == 10000){
@@ -59,7 +58,7 @@ public class Settings extends AppCompatActivity {
         refreshTimeSpinner = findViewById(R.id.spinner);
         ArrayAdapter adapter = new ArrayAdapter(this, R.layout.spinner_layout, names);
         refreshTimeSpinner.setAdapter(adapter);
-        setDefaultSpinner();
+        setSpinnerValues();
         refreshTimeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
@@ -84,7 +83,7 @@ public class Settings extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {
-                setDefaultSpinner();
+                setSpinnerValues();
             }
         });
     }
@@ -101,7 +100,13 @@ public class Settings extends AppCompatActivity {
             Toast.makeText(Settings.this, "Saved", Toast.LENGTH_SHORT).show();
         } catch (Exception ParseException) {
             Toast.makeText(Settings.this, "Wrong location", Toast.LENGTH_SHORT).show();
+            clearCoordinates();
         }
+    }
+
+    private void clearCoordinates(){
+        longitude.setText("");
+        latitude.setText("");
     }
 
 

@@ -46,15 +46,15 @@ public class MoonFragment extends Fragment implements MoonInfoCallback {
     private void setData(){
         String temp;
         temp = String.valueOf(moonInfo.getMoonrise());
-        moonrise.setText("Moonrise:      " + temp.substring(0, temp.length() - 6));
+        moonrise.setText(temp.substring(0, temp.length() - 6));
         temp = String.valueOf(moonInfo.getMoonset());
-        moonset.setText("Moonset:       " + temp.substring(0, temp.length() - 6));
+        moonset.setText(temp.substring(0, temp.length() - 6));
         temp = String.valueOf(moonInfo.getNewMoon());
-        newmoon.setText("New moon:   " + temp.substring(0, temp.length() - 6));
+        newmoon.setText(temp.substring(0, temp.length() - 6));
         temp = String.valueOf(moonInfo.getFullMoon());
-        fullmoon.setText("Full moon:     " + temp.substring(0, temp.length() - 6));
-        moonphase.setText("Phase:           " + String.valueOf(Math.ceil((moonInfo.getIllumination() * 100))) + "%");
-        age.setText("Age:               " + String.valueOf((int) moonInfo.getAge()));
+        fullmoon.setText(temp.substring(0, temp.length() - 6));
+        moonphase.setText(String.valueOf(Math.ceil((moonInfo.getIllumination() * 100))) + "%");
+        age.setText(String.valueOf((int) moonInfo.getAge()));
     }
 
     @Override
