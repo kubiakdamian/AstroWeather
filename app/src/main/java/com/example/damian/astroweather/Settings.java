@@ -19,11 +19,6 @@ import java.util.List;
 
 public class Settings extends AppCompatActivity {
 
-    private static final String LATITUDE = "Latitude";
-    private static final String LONGITUDE = "Longitude";
-    private static final String INCORECT_DATA = "Incorect Data";
-    private static final String SAVE_CHANGES = "Changes saved";
-
     private MoonInfo moonInfo;
     private SunInfo sunInfo;
     private Spinner refreshTimeSpinner;
@@ -44,12 +39,6 @@ public class Settings extends AppCompatActivity {
         init();
     }
 
-    private void setRefreshNames(){
-        names.add("5s");
-        names.add("10s");
-        names.add("15s");
-    }
-
     void init() {
         longitude = findViewById(R.id.newlongitude);
         latitude = findViewById(R.id.newlatitude);
@@ -67,8 +56,8 @@ public class Settings extends AppCompatActivity {
     }
 
     void initSpinner() {
-        refreshTimeSpinner = findViewById(R.id.refresh_time);
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, names);
+        refreshTimeSpinner = findViewById(R.id.spinner);
+        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.spinner_layout, names);
         refreshTimeSpinner.setAdapter(adapter);
         setDefaultSpinner();
         refreshTimeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -100,7 +89,7 @@ public class Settings extends AppCompatActivity {
         });
     }
 
-    public void saveHandler(View view) {
+    public void onSave(View view) {
         try {
             double mlatitude = Double.parseDouble(latitude.getText().toString());
             double mlongitude = Double.parseDouble(longitude.getText().toString());
@@ -109,9 +98,16 @@ public class Settings extends AppCompatActivity {
             }
             sunInfo.setLocation(new AstroCalculator.Location(mlatitude, mlongitude));
             moonInfo.setLocation(new AstroCalculator.Location(mlatitude, mlongitude));
-            Toast.makeText(Settings.this, SAVE_CHANGES, Toast.LENGTH_SHORT).show();
+            Toast.makeText(Settings.this, "Saved", Toast.LENGTH_SHORT).show();
         } catch (Exception ParseException) {
-            Toast.makeText(Settings.this, INCORECT_DATA, Toast.LENGTH_SHORT).show();
+            Toast.makeText(Settings.this, "Wrong location", Toast.LENGTH_SHORT).show();
         }
+    }
+
+
+    private void setRefreshNames(){
+        names.add("5s");
+        names.add("10s");
+        names.add("15s");
     }
 }

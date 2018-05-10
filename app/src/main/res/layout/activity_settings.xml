@@ -23,12 +23,14 @@
                     android:padding="3dip"
                     android:textSize="40sp"
                     android:text="Refresh time"
+                    android:textColor="#000"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <Spinner
-                    android:id="@+id/refresh_time"
+                    android:id="@+id/spinner"
                     android:textSize="40sp"
                     android:gravity="end"
+                    android:scrollbarSize="100sp"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
             </TableRow>
 
@@ -39,12 +41,15 @@
                     android:padding="3dip"
                     android:textSize="40sp"
                     android:text="Longitude"
+                    android:textColor="#000"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <EditText
                     android:id="@+id/newlongitude"
                     android:gravity="end"
                     android:textSize="40sp"
+                    android:drawableBottom="#000000"
+                    android:textColor="#000000"
                     android:padding="3dip"
                     android:inputType="number"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -57,11 +62,14 @@
                     android:textSize="40sp"
                     android:padding="3dip"
                     android:text="Latitude"
+                    android:textColor="#000"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <EditText
                     android:id="@+id/newlatitude"
                     android:textSize="40sp"
+                    android:drawableBottom="#000000"
+                    android:textColor="#000000"
                     android:gravity="end"
                     android:padding="3dip"
                     android:inputType="number"
@@ -75,11 +83,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:onClick="saveHandler"
+            android:onClick="onSave"
             android:text="Save"
             android:textSize="40sp"
             android:layout_marginTop="100dp"
-            android:background="@color/colorPrimaryDark"/>
+            android:background="@color/colorPrimaryDark"
+            />
 
     </LinearLayout>
 
