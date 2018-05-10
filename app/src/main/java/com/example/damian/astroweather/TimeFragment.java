@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.TimeZone;
 
-public class TimeFragment extends Fragment {
+public class TimeFragment extends Fragment implements SunInfoCallback{
 
     private TextView timer;
     private TextView coordinates;
@@ -24,7 +24,8 @@ public class TimeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.time_fragment, container, false);
-        info = new SunInfo();
+        info = SunInfo.getSunInfoInstance();
+        info.registerForUpdates(this);
         init(view);
         setCoordinates();
         return view;
@@ -47,5 +48,14 @@ public class TimeFragment extends Fragment {
 
     private void setCoordinates(){
         coordinates.setText("Lat:" + String.valueOf(info.getLocation().getLatitude()) + " Lon: " + String.valueOf(info.getLocation().getLongitude()));
+    }
+
+    public void onSettingsUpdate() {
+        setCoordinates();
+    }
+
+    public void onDestroy() {
+        info.unregisterForUpdates(this);
+        super.onDestroy();
     }
 }

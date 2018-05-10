@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class SunFragment extends Fragment {
+public class SunFragment extends Fragment implements SunInfoCallback {
     View view;
     private TextView sunrise;
     private TextView sunriseAzimuth;
@@ -29,7 +29,8 @@ public class SunFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.sun_fragment, container, false);
         init(view);
-        sunInfo = new SunInfo();
+        sunInfo = SunInfo.getSunInfoInstance();
+        sunInfo.registerForUpdates(this);
         setData();
         return view;
     }
@@ -57,6 +58,15 @@ public class SunFragment extends Fragment {
         twilight.setText("Twilight:       " + temp.substring(0, temp.length() - 6));
         temp = String.valueOf(sunInfo.getTwilightMorning());
         dawn.setText("Dawn:           " + temp.substring(0, temp.length() - 6));
+    }
 
+    @Override
+    public void onSettingsUpdate() {
+        setData();
+    }
+
+    public void onDestroy() {
+        sunInfo.unregisterForUpdates(this);
+        super.onDestroy();
     }
 }

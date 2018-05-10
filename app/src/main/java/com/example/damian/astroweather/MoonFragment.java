@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class MoonFragment extends Fragment {
+public class MoonFragment extends Fragment implements MoonInfoCallback {
     View view;
     private TextView moonrise;
     private TextView moonset;
@@ -26,6 +26,8 @@ public class MoonFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         moonInfo = new MoonInfo();
+        moonInfo = MoonInfo.getMoonInfoInstance();
+        moonInfo.registerForUpdates(this);
         view = inflater.inflate(R.layout.moon_fragment, container, false);
         init(view);
         setData();
@@ -53,5 +55,15 @@ public class MoonFragment extends Fragment {
         fullmoon.setText("Full moon:     " + temp.substring(0, temp.length() - 6));
         moonphase.setText("Phase:           " + String.valueOf(Math.ceil((moonInfo.getIllumination() * 100))) + "%");
         age.setText("Age:               " + String.valueOf((int) moonInfo.getAge()));
+    }
+
+    @Override
+    public void onSettingsUpdate() {
+        setData();
+    }
+
+    public void onDestroy() {
+        moonInfo.unregisterForUpdates(this);
+        super.onDestroy();
     }
 }
