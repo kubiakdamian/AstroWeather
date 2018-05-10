@@ -13,9 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:background="?attr/colorPrimaryDark"
-        android:minHeight="?attr/actionBarSize"
-        app:tabSelectedTextColor="#fff"
-        app:tabTextColor="#fff" />
+        android:minHeight="?attr/actionBarSize" />
 
 
     <android.support.design.widget.TabLayout

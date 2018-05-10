@@ -17,6 +17,7 @@ public class SunInfo {
     private AstroCalculator.SunInfo sunInfo;
     private AstroCalculator.Location location;
     private Set<SunInfoCallback> subscribers = new HashSet<>();
+    private long timeInterval = 10000;
 
     final Handler handler = new Handler();
 
@@ -40,7 +41,7 @@ public class SunInfo {
             public void run() {
                 update();
                 notifySubscribers();
-                handler.postDelayed(this, 10000);
+                handler.postDelayed(this, timeInterval);
             }
         };
         handler.post(updateAstro);
@@ -110,14 +111,14 @@ public class SunInfo {
         }
     }
 
-//    public void setTimeInterval(long timeInterval) {
-//        this.timeInterval = timeInterval;
-//        update();
-//        notifySubscribers();
-//    }
-//
-//    public long getTimeInterval(){
-//        return this.timeInterval;
-//    }
+    public void setTimeInterval(long timeInterval) {
+        this.timeInterval = timeInterval;
+        update();
+        notifySubscribers();
+    }
+
+    public long getTimeInterval(){
+        return this.timeInterval;
+    }
 
 }

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:gravity="center">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,11 +21,13 @@
                 <TextView
                     android:layout_column="1"
                     android:padding="3dip"
-                    android:text="Ref"
+                    android:textSize="40sp"
+                    android:text="Refresh time"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <Spinner
                     android:id="@+id/refresh_time"
+                    android:textSize="40sp"
                     android:gravity="end"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
             </TableRow>
@@ -33,13 +37,16 @@
                 <TextView
                     android:layout_column="1"
                     android:padding="3dip"
-                    android:text="Lon"
+                    android:textSize="40sp"
+                    android:text="Longitude"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <EditText
                     android:id="@+id/newlongitude"
                     android:gravity="end"
+                    android:textSize="40sp"
                     android:padding="3dip"
+                    android:inputType="number"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
             </TableRow>
 
@@ -47,14 +54,17 @@
 
                 <TextView
                     android:layout_column="1"
+                    android:textSize="40sp"
                     android:padding="3dip"
-                    android:text="Lat"
+                    android:text="Latitude"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <EditText
                     android:id="@+id/newlatitude"
+                    android:textSize="40sp"
                     android:gravity="end"
                     android:padding="3dip"
+                    android:inputType="number"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
             </TableRow>
 
@@ -66,8 +76,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:onClick="saveHandler"
-            android:text="Save" />
+            android:text="Save"
+            android:textSize="40sp"
+            android:layout_marginTop="100dp"
+            android:background="@color/colorPrimaryDark"/>
 
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

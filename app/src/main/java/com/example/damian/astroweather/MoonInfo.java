@@ -17,6 +17,7 @@ public class MoonInfo {
     private AstroCalculator.MoonInfo moonInfo;
     private Runnable updateInfo;
     private Set<MoonInfoCallback> subscribers = new HashSet<>();
+    private long timeInterval = 10000;
 
     final Handler handler = new Handler();
 
@@ -40,7 +41,7 @@ public class MoonInfo {
             public void run() {
                 update();
                 notifySubscribers();
-                handler.postDelayed(this, 10000);
+                handler.postDelayed(this, timeInterval);
             }
         };
         handler.post(updateInfo);
@@ -104,6 +105,16 @@ public class MoonInfo {
         for (MoonInfoCallback subscriber : subscribers) {
             subscriber.onSettingsUpdate();
         }
+    }
+
+    public void setTimeInterval(long timeInterval) {
+        this.timeInterval = timeInterval;
+        update();
+        notifySubscribers();
+    }
+
+    public long getTimeInterval(){
+        return this.timeInterval;
     }
 
 }

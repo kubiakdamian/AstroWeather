@@ -30,24 +30,25 @@ public class Settings extends AppCompatActivity {
     private EditText longitude;
     private EditText latitude;
     private Button buttonSave;
+    private List<String> names;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        names = new ArrayList<>();
+        setRefreshNames();
         sunInfo = sunInfo.getSunInfoInstance();
         moonInfo = moonInfo.getMoonInfoInstance();
         setContentView(R.layout.activity_settings);
-//        initSpinner();
+        initSpinner();
         init();
     }
 
-//    List<String> getIntervalNames() {
-//        List<String> intervalNames = new ArrayList<>();
-//        for (UpdateTimeIntervalValues value : UpdateTimeIntervalValues.values()) {
-//            intervalNames.add(value.name());
-//        }
-//        return intervalNames;
-//    }
+    private void setRefreshNames(){
+        names.add("5s");
+        names.add("10s");
+        names.add("15s");
+    }
 
     void init() {
         longitude = findViewById(R.id.newlongitude);
@@ -55,58 +56,49 @@ public class Settings extends AppCompatActivity {
         buttonSave = findViewById(R.id.buttonsave);
     }
 
-//    private void setDefaultSpinner(){
-//        if(astroWeatherConfig.getTimeInterval() == 5000){
-//            refreshTimeSpinner.setSelection(0);
-//        }else if(astroWeatherConfig.getTimeInterval() == 10000){
-//            refreshTimeSpinner.setSelection(1);
-//        }else if(astroWeatherConfig.getTimeInterval() == 30000){
-//            refreshTimeSpinner.setSelection(2);
-//        }else if(astroWeatherConfig.getTimeInterval() == 1000*60){
-//            refreshTimeSpinner.setSelection(3);
-//        }else if(astroWeatherConfig.getTimeInterval() == 15*1000*60){
-//            refreshTimeSpinner.setSelection(4);
-//        }
-//    }
-//
-//    void initSpinner() {
-//        refreshTimeSpinner = (Spinner) findViewById(R.id.refresh_time);
-//        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, getIntervalNames());
-//        refreshTimeSpinner.setAdapter(adapter);
-//        setDefaultSpinner();
-//        refreshTimeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//
-//            @Override
-//            public void onItemSelected(AdapterView<?> arg0, View arg1,
-//                                       int id, long position) {
-//
-//                switch ((int) position) {
-//                    case 0:
-//                        astroWeatherConfig.setTimeInterval(5000);
-//                        break;
-//                    case 1:
-//                        astroWeatherConfig.setTimeInterval(10000);
-//                        break;
-//                    case 2:
-//                        astroWeatherConfig.setTimeInterval(30000);
-//                        break;
-//                    case 3:
-//                        astroWeatherConfig.setTimeInterval(60000);
-//                        break;
-//                    case 4:
-//                        astroWeatherConfig.setTimeInterval(900000);
-//                        break;
-//                }
-//            }
-//
-//
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> arg0) {
-//                setDefaultSpinner();
-//            }
-//        });
-//    }
+    private void setDefaultSpinner(){
+        if(sunInfo.getTimeInterval() == 5000){
+            refreshTimeSpinner.setSelection(0);
+        }else if(sunInfo.getTimeInterval() == 10000){
+            refreshTimeSpinner.setSelection(1);
+        }else if(sunInfo.getTimeInterval() == 15000){
+            refreshTimeSpinner.setSelection(2);
+        }
+    }
+
+    void initSpinner() {
+        refreshTimeSpinner = findViewById(R.id.refresh_time);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, names);
+        refreshTimeSpinner.setAdapter(adapter);
+        setDefaultSpinner();
+        refreshTimeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View arg1,
+                                       int id, long position) {
+
+                switch ((int) position) {
+                    case 0:
+                        sunInfo.setTimeInterval(5000);
+                        moonInfo.setTimeInterval(5000);
+                        break;
+                    case 1:
+                        sunInfo.setTimeInterval(10000);
+                        moonInfo.setTimeInterval(10000);
+                        break;
+                    case 2:
+                        sunInfo.setTimeInterval(15000);
+                        moonInfo.setTimeInterval(15000);
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                setDefaultSpinner();
+            }
+        });
+    }
 
     public void saveHandler(View view) {
         try {

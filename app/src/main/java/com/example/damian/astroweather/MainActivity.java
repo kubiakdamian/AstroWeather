@@ -1,8 +1,6 @@
 package com.example.damian.astroweather;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +9,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tabLayout = findViewById(R.id.tablelayoutid);
-        configureToolbar();
+        initToolbar();
         if(!getResources().getBoolean(R.bool.isTablet)){
             setAdapter();
         }
@@ -48,10 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
-
         }
     }
 
@@ -62,9 +56,9 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public void configureToolbar() {
+    public void initToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitleTextColor(Color.WHITE);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.colorPrimaryDark));
         setSupportActionBar(toolbar);
     }
 }
