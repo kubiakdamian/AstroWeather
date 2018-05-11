@@ -80,8 +80,8 @@ public class MoonInfo {
         astroDateTime.setMonth(calendar.get(Calendar.MONTH) + 1);
         astroDateTime.setSecond(calendar.get(Calendar.SECOND));
         astroDateTime.setYear(calendar.get(Calendar.YEAR));
-        astroDateTime.setTimezoneOffset((calendar.get(Calendar.ZONE_OFFSET) + calendar.get(Calendar.DST_OFFSET)) / (3600 * 1000));
         astroDateTime.setDaylightSaving(false);
+        astroDateTime.setTimezoneOffset(2);
 
         return astroDateTime;
     }

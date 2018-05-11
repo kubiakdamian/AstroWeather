@@ -93,6 +93,7 @@ public class SunInfo {
         astroDateTime.setYear(calendar.get(Calendar.YEAR));
         astroDateTime.setTimezoneOffset((calendar.get(Calendar.ZONE_OFFSET) + calendar.get(Calendar.DST_OFFSET)) / (3600 * 1000));
         astroDateTime.setDaylightSaving(false);
+        astroDateTime.setTimezoneOffset(2);
 
         return astroDateTime;
     }
