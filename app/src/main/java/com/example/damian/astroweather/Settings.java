@@ -92,7 +92,7 @@ public class Settings extends AppCompatActivity {
         try {
             double mlatitude = Double.parseDouble(latitude.getText().toString());
             double mlongitude = Double.parseDouble(longitude.getText().toString());
-            if ((mlatitude > 90 || mlatitude < -90) || (mlongitude < 0 || mlongitude > 180)) {
+            if ((mlatitude > 90 || mlatitude < -90) || (mlongitude < -180 || mlongitude > 180)) {
                 throw new Exception();
             }
             sunInfo.setLocation(new AstroCalculator.Location(mlatitude, mlongitude));

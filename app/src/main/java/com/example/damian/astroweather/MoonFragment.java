@@ -45,8 +45,6 @@ public class MoonFragment extends Fragment implements MoonInfoCallback {
 
     private void setData(){
         String temp;
-//        moonInfo.getMoonrise().setTimezoneOffset(2);
-//        moonInfo.getMoonset().setTimezoneOffset(2);
         temp = String.valueOf(moonInfo.getMoonrise());
         moonrise.setText(temp.substring(0, temp.length() - 6));
         temp = String.valueOf(moonInfo.getMoonset());

@@ -1,6 +1,7 @@
 package com.example.damian.astroweather;
 
 import android.os.Handler;
+import android.widget.Toast;
 
 import com.astrocalculator.AstroCalculator;
 import com.astrocalculator.AstroDateTime;
