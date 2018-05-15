@@ -1,6 +1,7 @@
 package com.example.damian.astroweather;
 
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MoonFragment extends Fragment implements MoonInfoCallback {
     View view;
@@ -60,6 +62,8 @@ public class MoonFragment extends Fragment implements MoonInfoCallback {
     @Override
     public void onSettingsUpdate() {
         setData();
+        Activity activity = getActivity();
+        Toast.makeText(activity,"Updated",Toast.LENGTH_SHORT).show();
     }
 
     public void onDestroy() {
