@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">AstroWeather</string>
+    <string name="temperature">temperature</string>
+    <string name="condtition">condition</string>
+    <string name="location">location</string>
 </resources>

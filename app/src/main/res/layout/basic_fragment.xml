@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top"
+    android:background="@color/sunFragmentBackground">
+
+    <ImageView
+        android:id="@+id/weatherIconid"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:src="@drawable/na"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/locationid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/location"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/conditionid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/condtition"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:layout_marginTop="15sp"/>
+
+    <TextView
+        android:id="@+id/temperatureid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/temperature"
+        android:textAlignment="center"
+        android:textSize="20sp"/>
+
+
+</LinearLayout>
