@@ -3,4 +3,10 @@
     <string name="temperature">temperature</string>
     <string name="condtition">condition</string>
     <string name="location">location</string>
+    <string name="longitude">longitiude</string>
+    <string name="latitiude">latitiude</string>
+    <string name="humidity">humidity</string>
+    <string name="pressure">pressure</string>
+    <string name="chill">chill</string>
+    <string name="speed">speed</string>
 </resources>

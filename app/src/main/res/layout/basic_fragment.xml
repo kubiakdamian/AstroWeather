@@ -28,8 +28,7 @@
         android:layout_height="wrap_content"
         android:text="@string/condtition"
         android:textAlignment="center"
-        android:textSize="20sp"
-        android:layout_marginTop="15sp"/>
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/temperatureid"
@@ -37,7 +36,96 @@
         android:layout_height="wrap_content"
         android:text="@string/temperature"
         android:textAlignment="center"
-        android:textSize="20sp"/>
+        android:textSize="35sp"
+        android:textColor="@color/white"
+        android:layout_marginBottom="15sp"/>
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="1">
+
+    <TableRow>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/longitude"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/longid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/longitude"
+            android:textSize="20sp"
+            android:gravity="end"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/latitiude"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/latid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/latitiude"
+            android:textSize="20sp"
+            android:gravity="end"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/humidity"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/humidityid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/humidity"
+            android:textSize="20sp"
+            android:gravity="end"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pressure"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/pressureid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pressure"
+            android:textSize="20sp"
+            android:gravity="end"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/speed"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/speedid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/speed"
+            android:textSize="20sp"
+            android:gravity="end"/>
+    </TableRow>
+
+    </TableLayout>
 
 
 </LinearLayout>
