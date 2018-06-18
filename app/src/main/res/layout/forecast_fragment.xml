@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top"
+    android:background="@color/sunFragmentBackground">
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/location"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="30sp"
+        android:layout_marginTop="20sp"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/firstImg"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            app:srcCompat="@drawable/na" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/firstDay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:gravity="left"
+                android:textStyle="bold"
+                android:layout_marginTop="10sp" />
+
+            <TextView
+                android:id="@+id/firstTemp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:layout_marginBottom="15sp"
+                android:gravity="left"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/secondImg"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            app:srcCompat="@drawable/na" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/secondDay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:layout_marginTop="10sp"
+                android:textStyle="bold"
+                android:gravity="left"/>
+
+            <TextView
+                android:id="@+id/secondTemp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:layout_marginBottom="10sp"
+                android:gravity="left"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/thirdImg"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            app:srcCompat="@drawable/na" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/thirdDay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:layout_marginTop="10sp"
+                android:textStyle="bold"
+                android:gravity="left"/>
+
+            <TextView
+                android:id="@+id/thirdTemp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:layout_marginBottom="10sp"
+                android:gravity="left"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/fourthImg"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            app:srcCompat="@drawable/na" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/fourthDay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:layout_marginTop="10sp"
+                android:textStyle="bold"
+                android:gravity="left"/>
+
+            <TextView
+                android:id="@+id/fourthTemp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:layout_marginBottom="10sp"
+                android:gravity="left"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/fifthImg"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            app:srcCompat="@drawable/na" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/fifthDay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:layout_marginTop="10sp"
+                android:textStyle="bold"
+                android:gravity="left"/>
+
+            <TextView
+                android:id="@+id/fifthTemp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:layout_marginBottom="10sp"
+                android:gravity="left"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.viewpagerid);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new BasicFragment(), "Basic");
-        adapter.addFragment(new ForecatsFragment(), "Forecast");
+        adapter.addFragment(new ForecastFragment(), "Forecast");
         adapter.addFragment(new SunFragment(), "Sun");
         adapter.addFragment(new MoonFragment(), "Moon");
 
