@@ -110,6 +110,17 @@
             android:background="@color/colorPrimaryDark"
             />
 
+        <Button
+            android:id="@+id/buttonrefresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:onClick="onRefresh"
+            android:text="Refresh data"
+            android:textSize="40sp"
+            android:background="@color/colorPrimaryDark"
+            />
+
     </LinearLayout>
 
 </LinearLayout>

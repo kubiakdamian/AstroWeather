@@ -11,13 +11,15 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.astrocalculator.AstroCalculator;
+import com.example.damian.astroweather.data.Channel;
+import com.example.damian.astroweather.service.WeatherCallback;
 import com.example.damian.astroweather.service.YahooWeather;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Settings extends AppCompatActivity {
+public class Settings extends AppCompatActivity implements WeatherCallback{
 
     private MoonInfo moonInfo;
     private SunInfo sunInfo;
@@ -26,6 +28,8 @@ public class Settings extends AppCompatActivity {
     private EditText latitude;
     private EditText newlocation;
     private Button buttonSave;
+    private Button buttonRefresh;
+    private YahooWeather yahooWeather;
     private List<String> names;
 
     @Override
@@ -46,6 +50,7 @@ public class Settings extends AppCompatActivity {
         latitude = findViewById(R.id.newlatitude);
         newlocation = findViewById(R.id.newlocation);
         buttonSave = findViewById(R.id.buttonsave);
+        buttonRefresh = findViewById(R.id.buttonrefresh);
         newlocation.setText(String.valueOf(YahooWeather.getLocation()));
     }
 
@@ -114,6 +119,12 @@ public class Settings extends AppCompatActivity {
         }
     }
 
+    public void onRefresh(View view){
+        yahooWeather = new YahooWeather(this);
+        yahooWeather.refreshWeather(YahooWeather.getLocation());
+
+    }
+
     private void clearCoordinates(){
         longitude.setText("");
         latitude.setText("");
@@ -124,5 +135,15 @@ public class Settings extends AppCompatActivity {
         names.add("5s");
         names.add("10s");
         names.add("15s");
+    }
+
+    @Override
+    public void serviceSuccess(Channel channel) {
+        Toast.makeText(Settings.this, "Forecast refreshed", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void serviceFailure(Exception exception) {
+        Toast.makeText(Settings.this, "Couldn't refresh data", Toast.LENGTH_SHORT).show();
     }
 }

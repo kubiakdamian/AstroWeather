@@ -68,7 +68,7 @@ public class BasicFragment extends Fragment implements WeatherCallback {
 
         temperature.setText(item.getCondition().getTemperature() + "\u00B0" + channel.getUnits().getTemperature());
         condition.setText(item.getCondition().getDescription());
-        location.setText(yahooWeather.getLocation());
+        location.setText(channel.getLocation().getCity());
         longitude.setText(item.getLongitude());
         latitiude.setText(item.getLatitude());
         humidity.setText(atmosphere.getHumidity());

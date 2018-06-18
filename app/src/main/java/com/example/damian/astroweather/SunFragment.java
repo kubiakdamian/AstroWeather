@@ -66,7 +66,7 @@ public class SunFragment extends Fragment implements SunInfoCallback {
     public void onSettingsUpdate() {
         setData();
         Activity activity = getActivity();
-        Toast.makeText(activity,"Updated",Toast.LENGTH_SHORT).show();
+//        Toast.makeText(activity,"Updated",Toast.LENGTH_SHORT).show();
     }
 
     public void onDestroy() {

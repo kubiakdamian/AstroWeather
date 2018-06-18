@@ -28,7 +28,6 @@ public class YahooWeather {
         return location;
     }
 
-    private YahooWeather(){}
     public YahooWeather(WeatherCallback weatherCallback) {
         this.weatherCallback = weatherCallback;
     }

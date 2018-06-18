@@ -63,7 +63,7 @@ public class MoonFragment extends Fragment implements MoonInfoCallback {
     public void onSettingsUpdate() {
         setData();
         Activity activity = getActivity();
-        Toast.makeText(activity,"Updated",Toast.LENGTH_SHORT).show();
+//        Toast.makeText(activity,"Updated",Toast.LENGTH_SHORT).show();
     }
 
     public void onDestroy() {

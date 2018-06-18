@@ -81,7 +81,7 @@ public class ForecastFragment extends Fragment implements WeatherCallback {
         fourthImg.setImageDrawable(getWeatherIcon(item, 3));
         fifthImg.setImageDrawable(getWeatherIcon(item, 4));
 
-        location.setText(yahooWeather.getLocation());
+        location.setText(channel.getLocation().getCity());
         firstDay.setText(item.getForecast()[0].getDay());
         firstTemp.setText(item.getForecast()[0].getLowest() + "\u00B0" + channel.getUnits().getTemperature() + "/" + item.getForecast()[0].getHighest() + "\u00B0" + channel.getUnits().getTemperature());
         secondDay.setText(item.getForecast()[1].getDay());
