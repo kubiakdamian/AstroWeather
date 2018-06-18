@@ -17,18 +17,18 @@ import java.net.URLConnection;
 
 public class YahooWeather {
     private WeatherCallback weatherCallback;
-    private String location;
+    private static String location = "Lodz";
     private Exception error;
 
-
-    public void setLocation(String location) {
-        this.location = location;
+    public static void setLocation(String newLocation) {
+        location = newLocation;
     }
 
-    public String getLocation() {
+    public static String getLocation() {
         return location;
     }
 
+    private YahooWeather(){}
     public YahooWeather(WeatherCallback weatherCallback) {
         this.weatherCallback = weatherCallback;
     }
@@ -39,7 +39,7 @@ public class YahooWeather {
         new AsyncTask<String, Void, String>() {
             @Override
             protected String doInBackground(String... strings) {
-                String YQL = String.format("select * from weather.forecast where woeid in (select woeid from geo.places(1) where text=\"%s\") and u='c'", strings[0]);
+                String YQL = String.format("select * from weather.forecast where woeid in (select woeid from geo.places(1) where text=\"%s\") and u='c'", location);
 
                 String endpoint = String.format("https://query.yahooapis.com/v1/public/yql?q=%s&format=json", Uri.encode(YQL));
 

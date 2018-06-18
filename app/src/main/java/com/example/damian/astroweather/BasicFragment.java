@@ -54,7 +54,7 @@ public class BasicFragment extends Fragment implements WeatherCallback {
         speed = view.findViewById(R.id.speedid);
 
         yahooWeather = new YahooWeather(this);
-        yahooWeather.refreshWeather("Łódź, Poland");
+        yahooWeather.refreshWeather(YahooWeather.getLocation());
     }
 
     @Override

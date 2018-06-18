@@ -11,6 +11,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.astrocalculator.AstroCalculator;
+import com.example.damian.astroweather.service.YahooWeather;
 
 
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class Settings extends AppCompatActivity {
     private Spinner refreshTimeSpinner;
     private EditText longitude;
     private EditText latitude;
+    private EditText newlocation;
     private Button buttonSave;
     private List<String> names;
 
@@ -33,6 +35,7 @@ public class Settings extends AppCompatActivity {
         setRefreshNames();
         sunInfo = sunInfo.getSunInfoInstance();
         moonInfo = moonInfo.getMoonInfoInstance();
+
         setContentView(R.layout.activity_settings);
         initSpinner();
         init();
@@ -41,7 +44,9 @@ public class Settings extends AppCompatActivity {
     void init() {
         longitude = findViewById(R.id.newlongitude);
         latitude = findViewById(R.id.newlatitude);
+        newlocation = findViewById(R.id.newlocation);
         buttonSave = findViewById(R.id.buttonsave);
+        newlocation.setText(String.valueOf(YahooWeather.getLocation()));
     }
 
     private void setSpinnerValues(){
@@ -90,14 +95,19 @@ public class Settings extends AppCompatActivity {
 
     public void onSave(View view) {
         try {
-            double mlatitude = Double.parseDouble(latitude.getText().toString());
-            double mlongitude = Double.parseDouble(longitude.getText().toString());
-            if ((mlatitude > 90 || mlatitude < -90) || (mlongitude < -180 || mlongitude > 180)) {
-                throw new Exception();
+            if(latitude.getText().length() <= 0 || longitude.getText().length() <= 0){
+                YahooWeather.setLocation(newlocation.getText().toString());
+                Toast.makeText(Settings.this, "Saved", Toast.LENGTH_SHORT).show();
+            }else {
+                double mlatitude = Double.parseDouble(latitude.getText().toString());
+                double mlongitude = Double.parseDouble(longitude.getText().toString());
+                if ((mlatitude > 90 || mlatitude < -90) || (mlongitude < -180 || mlongitude > 180)) {
+                    throw new Exception();
+                }
+                sunInfo.setLocation(new AstroCalculator.Location(mlatitude, mlongitude));
+                moonInfo.setLocation(new AstroCalculator.Location(mlatitude, mlongitude));
+                Toast.makeText(Settings.this, "Saved", Toast.LENGTH_SHORT).show();
             }
-            sunInfo.setLocation(new AstroCalculator.Location(mlatitude, mlongitude));
-            moonInfo.setLocation(new AstroCalculator.Location(mlatitude, mlongitude));
-            Toast.makeText(Settings.this, "Saved", Toast.LENGTH_SHORT).show();
         } catch (Exception ParseException) {
             Toast.makeText(Settings.this, "Wrong location", Toast.LENGTH_SHORT).show();
             clearCoordinates();

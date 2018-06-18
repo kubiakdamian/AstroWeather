@@ -2,6 +2,7 @@ package com.example.damian.astroweather;
 
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.damian.astroweather.data.Channel;
 import com.example.damian.astroweather.data.Item;
@@ -37,7 +39,6 @@ public class ForecastFragment extends Fragment implements WeatherCallback {
     private TextView fifthDay;
     private ImageView fifthImg;
     private TextView fifthTemp;
-
 
     @Nullable
     @Override
@@ -66,7 +67,7 @@ public class ForecastFragment extends Fragment implements WeatherCallback {
         fifthTemp = view.findViewById(R.id.fifthTemp);
 
         yahooWeather = new YahooWeather(this);
-        yahooWeather.refreshWeather("Łódź, Poland");
+        yahooWeather.refreshWeather(YahooWeather.getLocation());
     }
 
     @SuppressLint("SetTextI18n")
@@ -95,7 +96,8 @@ public class ForecastFragment extends Fragment implements WeatherCallback {
 
     @Override
     public void serviceFailure(Exception exception) {
-
+        Activity activity = getActivity();
+        Toast.makeText(activity, exception.getMessage(), Toast.LENGTH_SHORT).show();
     }
 
     private Drawable getWeatherIcon(Item item, int number){
