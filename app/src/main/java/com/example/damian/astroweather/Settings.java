@@ -24,6 +24,7 @@ public class Settings extends AppCompatActivity implements WeatherCallback{
     private MoonInfo moonInfo;
     private SunInfo sunInfo;
     private Spinner refreshTimeSpinner;
+    private Spinner unitsSpinner;
     private EditText longitude;
     private EditText latitude;
     private EditText newlocation;
@@ -31,17 +32,21 @@ public class Settings extends AppCompatActivity implements WeatherCallback{
     private Button buttonRefresh;
     private YahooWeather yahooWeather;
     private List<String> names;
+    private List<String> units;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         names = new ArrayList<>();
+        units = new ArrayList<>();
         setRefreshNames();
+        setUnitsNames();
         sunInfo = sunInfo.getSunInfoInstance();
         moonInfo = moonInfo.getMoonInfoInstance();
 
         setContentView(R.layout.activity_settings);
         initSpinner();
+        initUnitsSpinner();
         init();
     }
 
@@ -61,6 +66,14 @@ public class Settings extends AppCompatActivity implements WeatherCallback{
             refreshTimeSpinner.setSelection(1);
         }else if(sunInfo.getTimeInterval() == 15000){
             refreshTimeSpinner.setSelection(2);
+        }
+    }
+
+    private void setUnitsSpinnerValues(){
+        if(YahooWeather.getUnit() == "c"){
+            refreshTimeSpinner.setSelection(0);
+        }else if(YahooWeather.getUnit() == "f"){
+            refreshTimeSpinner.setSelection(1);
         }
     }
 
@@ -94,6 +107,35 @@ public class Settings extends AppCompatActivity implements WeatherCallback{
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {
                 setSpinnerValues();
+            }
+        });
+    }
+
+    void initUnitsSpinner(){
+        unitsSpinner = findViewById(R.id.spinnerUnits);
+        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.spinner_layout, units);
+        unitsSpinner.setAdapter(adapter);
+        setUnitsSpinnerValues();
+
+        unitsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View arg1,
+                                       int id, long position) {
+
+                switch ((int) position) {
+                    case 0:
+                        YahooWeather.setUnit("c");
+                        break;
+                    case 1:
+                        YahooWeather.setUnit("f");
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                setUnitsSpinnerValues();
             }
         });
     }
@@ -135,6 +177,11 @@ public class Settings extends AppCompatActivity implements WeatherCallback{
         names.add("5s");
         names.add("10s");
         names.add("15s");
+    }
+
+    private void setUnitsNames(){
+        units.add("c");
+        units.add("f");
     }
 
     @Override
