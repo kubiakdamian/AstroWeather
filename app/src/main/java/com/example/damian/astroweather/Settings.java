@@ -182,7 +182,8 @@ public class Settings extends AppCompatActivity implements WeatherCallback{
         RealmQuery query = realm.where(Favourites.class);
         RealmResults results = query.findAll();
         favouriteLocations = new ArrayList<>();
-        for(int i=0;i<results.size();i++){
+
+        for(int i=0; i < results.size(); i++){
             Favourites item = (Favourites) results.get(i);
             favouriteLocations.add(item);
         }
@@ -228,8 +229,8 @@ public class Settings extends AppCompatActivity implements WeatherCallback{
         };
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Do you really want to add \""+newlocation.getText().toString()+"\" ?. If  name of the city is wrong the app will find the most possible result or nothing.").setPositiveButton("Yes", dialogClickListener)
-                .setNegativeButton("No", dialogClickListener).show();
+        builder.setMessage("Do you want to add \"" + newlocation.getText().toString()+ "\" ?. App will find most similar result").setPositiveButton("add", dialogClickListener)
+                .setNegativeButton("quit", dialogClickListener).show();
 
     }
 
