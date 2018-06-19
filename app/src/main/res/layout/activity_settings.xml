@@ -17,47 +17,44 @@
             android:stretchColumns="1">
 
             <TableRow>
-
             <TextView
                 android:layout_column="1"
                 android:padding="3dip"
-                android:textSize="40sp"
+                android:textSize="30sp"
                 android:text="Refresh time"
                 android:textColor="#000"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <Spinner
                 android:id="@+id/spinner"
-                android:textSize="40sp"
+                android:textSize="30sp"
                 android:gravity="end"
                 android:scrollbarSize="100sp"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </TableRow>
 
             <TableRow>
-
                 <TextView
                     android:layout_column="1"
                     android:padding="3dip"
-                    android:textSize="40sp"
+                    android:textSize="30sp"
                     android:text="Units"
                     android:textColor="#000"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <Spinner
                     android:id="@+id/spinnerUnits"
-                    android:textSize="40sp"
+                    android:textSize="30sp"
                     android:gravity="end"
                     android:scrollbarSize="100sp"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
             </TableRow>
 
             <TableRow>
-
                 <TextView
                     android:layout_column="1"
                     android:padding="3dip"
-                    android:textSize="40sp"
+                    android:textSize="30sp"
                     android:text="Longitude"
                     android:textColor="#000"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -65,7 +62,7 @@
                 <EditText
                     android:id="@+id/newlongitude"
                     android:gravity="end"
-                    android:textSize="40sp"
+                    android:textSize="30sp"
                     android:drawableBottom="#000000"
                     android:textColor="#000000"
                     android:padding="3dip"
@@ -74,10 +71,9 @@
             </TableRow>
 
             <TableRow>
-
                 <TextView
                     android:layout_column="1"
-                    android:textSize="40sp"
+                    android:textSize="30sp"
                     android:padding="3dip"
                     android:text="Latitude"
                     android:textColor="#000"
@@ -85,7 +81,7 @@
 
                 <EditText
                     android:id="@+id/newlatitude"
-                    android:textSize="40sp"
+                    android:textSize="30sp"
                     android:drawableBottom="#000000"
                     android:textColor="#000000"
                     android:gravity="end"
@@ -95,18 +91,34 @@
             </TableRow>
 
             <TableRow>
+                <TextView
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:textSize="30sp"
+                    android:text="Favourites"
+                    android:textColor="#000"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
+                <Spinner
+                    android:id="@+id/spinnerFavourites"
+                    android:textSize="30sp"
+                    android:gravity="end"
+                    android:scrollbarSize="100sp"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </TableRow>
+
+            <TableRow>
                 <TextView
                     android:layout_column="1"
                     android:padding="3dip"
                     android:text="Location"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#000"
-                    android:textSize="40sp" />
+                    android:textSize="30sp" />
 
                 <EditText
                     android:id="@+id/newlocation"
-                    android:textSize="40sp"
+                    android:textSize="30sp"
                     android:drawableBottom="#000000"
                     android:textColor="#000000"
                     android:gravity=""
@@ -123,8 +135,8 @@
             android:layout_gravity="center_horizontal"
             android:onClick="onSave"
             android:text="Save"
-            android:textSize="40sp"
-            android:layout_marginTop="100dp"
+            android:textSize="30sp"
+            android:layout_marginTop="20dp"
             android:background="@color/colorPrimaryDark"
             />
 
@@ -135,7 +147,18 @@
             android:layout_gravity="center_horizontal"
             android:onClick="onRefresh"
             android:text="Refresh data"
-            android:textSize="40sp"
+            android:textSize="30sp"
+            android:background="@color/colorPrimaryDark"
+            />
+
+        <Button
+            android:id="@+id/addToFav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:onClick="addLocation"
+            android:text="Add favourite"
+            android:textSize="30sp"
             android:background="@color/colorPrimaryDark"
             />
 

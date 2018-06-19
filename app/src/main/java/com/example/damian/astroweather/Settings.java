@@ -1,6 +1,8 @@
 package com.example.damian.astroweather;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,6 +14,7 @@ import android.widget.Toast;
 
 import com.astrocalculator.AstroCalculator;
 import com.example.damian.astroweather.data.Channel;
+import com.example.damian.astroweather.data.Favourites;
 import com.example.damian.astroweather.service.WeatherCallback;
 import com.example.damian.astroweather.service.YahooWeather;
 
@@ -19,35 +22,50 @@ import com.example.damian.astroweather.service.YahooWeather;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.realm.Realm;
+import io.realm.RealmQuery;
+import io.realm.RealmResults;
+
 public class Settings extends AppCompatActivity implements WeatherCallback{
 
     private MoonInfo moonInfo;
     private SunInfo sunInfo;
+    private YahooWeather yahooWeather;
+    private Realm realm;
+    private LocationSpinnerAdapter adapter;
+
     private Spinner refreshTimeSpinner;
     private Spinner unitsSpinner;
+    private Spinner favouritesSpinner;
     private EditText longitude;
     private EditText latitude;
     private EditText newlocation;
     private Button buttonSave;
     private Button buttonRefresh;
-    private YahooWeather yahooWeather;
+
     private List<String> names;
     private List<String> units;
+    private List<Favourites> favouriteLocations;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         names = new ArrayList<>();
         units = new ArrayList<>();
+        favouriteLocations = new ArrayList<>();
+        Realm.init(this);
+        realm = Realm.getDefaultInstance();
+        yahooWeather = new YahooWeather(this);
         setRefreshNames();
         setUnitsNames();
         sunInfo = sunInfo.getSunInfoInstance();
         moonInfo = moonInfo.getMoonInfoInstance();
 
         setContentView(R.layout.activity_settings);
+        init();
         initSpinner();
         initUnitsSpinner();
-        init();
+        initFavouritesSpinner();
     }
 
     void init() {
@@ -57,6 +75,7 @@ public class Settings extends AppCompatActivity implements WeatherCallback{
         buttonSave = findViewById(R.id.buttonsave);
         buttonRefresh = findViewById(R.id.buttonrefresh);
         newlocation.setText(String.valueOf(YahooWeather.getLocation()));
+        favouritesSpinner = findViewById(R.id.spinnerFavourites);
     }
 
     private void setSpinnerValues(){
@@ -140,10 +159,40 @@ public class Settings extends AppCompatActivity implements WeatherCallback{
         });
     }
 
+    void initFavouritesSpinner(){
+
+        getFavouritesFromDatabase();
+        adapter = new LocationSpinnerAdapter(this, R.layout.spinner_layout, favouriteLocations);
+        favouritesSpinner.setAdapter(adapter);
+        favouritesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Favourites favouriteLocation = adapter.getItem(i);
+                newlocation.setText(favouriteLocation.getLocation());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+    }
+
+    void getFavouritesFromDatabase(){
+        RealmQuery query = realm.where(Favourites.class);
+        RealmResults results = query.findAll();
+        favouriteLocations = new ArrayList<>();
+        for(int i=0;i<results.size();i++){
+            Favourites item = (Favourites) results.get(i);
+            favouriteLocations.add(item);
+        }
+    }
+
     public void onSave(View view) {
         try {
             if(latitude.getText().length() <= 0 || longitude.getText().length() <= 0){
                 YahooWeather.setLocation(newlocation.getText().toString());
+                yahooWeather.refreshWeather(newlocation.getText().toString());
                 Toast.makeText(Settings.this, "Saved", Toast.LENGTH_SHORT).show();
             }else {
                 double mlatitude = Double.parseDouble(latitude.getText().toString());
@@ -156,13 +205,54 @@ public class Settings extends AppCompatActivity implements WeatherCallback{
                 Toast.makeText(Settings.this, "Saved", Toast.LENGTH_SHORT).show();
             }
         } catch (Exception ParseException) {
-            Toast.makeText(Settings.this, "Wrong location", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Settings.this, ParseException.getMessage(), Toast.LENGTH_SHORT).show();
             clearCoordinates();
         }
     }
 
+    public void addLocation(View view){
+        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case DialogInterface.BUTTON_POSITIVE:
+                        addNewLocation();
+                        YahooWeather.setLocation(newlocation.getText().toString());
+                        break;
+
+                    case DialogInterface.BUTTON_NEGATIVE:
+                        //No button clicked
+                        break;
+                }
+            }
+        };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Do you really want to add \""+newlocation.getText().toString()+"\" ?. If  name of the city is wrong the app will find the most possible result or nothing.").setPositiveButton("Yes", dialogClickListener)
+                .setNegativeButton("No", dialogClickListener).show();
+
+    }
+
+    void addNewLocation(){
+        final Favourites favouriteLocation = new Favourites(newlocation.getText().toString());
+        if(adapter.checkIfExists(favouriteLocation.getLocation())){
+            Toast.makeText(this,"This location already exists in database",Toast.LENGTH_SHORT).show();
+        }else {
+            realm.beginTransaction();
+            Favourites itemInDb = realm.createObject(Favourites.class);
+            itemInDb.setLocation(favouriteLocation.getLocation());
+            realm.commitTransaction();
+            showToastAdded(favouriteLocation);
+
+            initFavouritesSpinner();
+        }
+    }
+
+    void showToastAdded(Favourites favouriteLocation){
+        Toast.makeText(this, "Added Location " + favouriteLocation.getLocation(), Toast.LENGTH_SHORT).show();
+    }
+
     public void onRefresh(View view){
-        yahooWeather = new YahooWeather(this);
         yahooWeather.refreshWeather(YahooWeather.getLocation());
 
     }
@@ -186,11 +276,11 @@ public class Settings extends AppCompatActivity implements WeatherCallback{
 
     @Override
     public void serviceSuccess(Channel channel) {
-        Toast.makeText(Settings.this, "Forecast refreshed", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(Settings.this, "Forecast refreshed", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void serviceFailure(Exception exception) {
-        Toast.makeText(Settings.this, "Couldn't refresh data", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(Settings.this, "Couldn't refresh data", Toast.LENGTH_SHORT).show();
     }
 }
