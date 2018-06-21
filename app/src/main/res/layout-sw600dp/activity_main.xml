@@ -20,7 +20,21 @@
         android:name="com.example.damian.astroweather.TimeFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.1"/>
+        android:layout_weight="0.18"/>
+
+    <fragment
+        android:id="@+id/forecast_fragment"
+        android:name="com.example.damian.astroweather.ForecastFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <fragment
+        android:id="@+id/basic_fragment"
+        android:name="com.example.damian.astroweather.BasicFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
     <fragment
         android:id="@+id/sun_fragment"
@@ -35,5 +49,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
+
 
 </LinearLayout>
