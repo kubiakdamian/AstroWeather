@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top"
+    android:background="@color/sunFragmentBackground">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/weatherIconid"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:src="@drawable/na"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/locationid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/location"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/conditionid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/condtition"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/temperatureid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/temperature"
+            android:textAlignment="center"
+            android:textSize="35sp"
+            android:textColor="@color/white"
+            android:layout_marginBottom="15sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="1"
+        android:layout_marginTop="50dp">
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/longitude"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/longid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/longitude"
+                android:textSize="20sp"
+                android:gravity="end"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/latitiude"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/latid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/latitiude"
+                android:textSize="20sp"
+                android:gravity="end"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/humidity"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/humidityid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/humidity"
+                android:textSize="20sp"
+                android:gravity="end"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pressure"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/pressureid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pressure"
+                android:textSize="20sp"
+                android:gravity="end"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/speed"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/speedid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/speed"
+                android:textSize="20sp"
+                android:gravity="end"/>
+        </TableRow>
+
+    </TableLayout>
+    </LinearLayout>
+
+</LinearLayout>
