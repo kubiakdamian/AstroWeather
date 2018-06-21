@@ -38,6 +38,18 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
     }
 
+    private void setTabletAdapter(){
+        viewPager = findViewById(R.id.viewpagerid);
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new BasicFragment(), "Basic");
+        adapter.addFragment(new ForecastFragment(), "Forecast");
+        adapter.addFragment(new SunFragment(), "Sun");
+        adapter.addFragment(new MoonFragment(), "Moon");
+
+        viewPager.setAdapter(adapter);
+        tabLayout.setupWithViewPager(viewPager);
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
