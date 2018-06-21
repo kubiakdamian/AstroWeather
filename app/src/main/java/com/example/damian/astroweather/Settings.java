@@ -134,6 +134,7 @@ public class Settings extends AppCompatActivity implements WeatherCallback{
         unitsSpinner = findViewById(R.id.spinnerUnits);
         ArrayAdapter adapter = new ArrayAdapter(this, R.layout.spinner_layout, units);
         unitsSpinner.setAdapter(adapter);
+        unitsSpinner.setSelection(getIndex(unitsSpinner, YahooWeather.getUnit()));
         setUnitsSpinnerValues();
 
         unitsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -159,11 +160,22 @@ public class Settings extends AppCompatActivity implements WeatherCallback{
         });
     }
 
-    void initFavouritesSpinner(){
+    private int getIndex(Spinner spinner, String myString){
+        int index = 0;
 
+        for (int i=0; i < spinner.getCount(); i++){
+            if (spinner.getItemAtPosition(i).toString().equals(myString)){
+                index = i;
+            }
+        }
+        return index;
+    }
+
+    void initFavouritesSpinner(){
         getFavouritesFromDatabase();
         adapter = new LocationSpinnerAdapter(this, R.layout.spinner_layout, favouriteLocations);
         favouritesSpinner.setAdapter(adapter);
+        favouritesSpinner.setSelection(getIndex(favouritesSpinner, YahooWeather.getLocation()));
         favouritesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -193,6 +205,7 @@ public class Settings extends AppCompatActivity implements WeatherCallback{
         try {
             if(latitude.getText().length() <= 0 || longitude.getText().length() <= 0){
                 YahooWeather.setLocation(newlocation.getText().toString());
+                YahooWeather.setUnit(unitsSpinner.getSelectedItem().toString());
                 yahooWeather.refreshWeather(newlocation.getText().toString());
                 Toast.makeText(Settings.this, "Saved", Toast.LENGTH_SHORT).show();
             }else {
