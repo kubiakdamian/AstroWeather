@@ -1,5 +1,6 @@
 package com.example.damian.astroweather.data;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ForecastCondition implements JSONPopulator{
@@ -31,5 +32,21 @@ public class ForecastCondition implements JSONPopulator{
         day = data.optString("day");
         highest = data.optString("high");
         lowest = data.optString("low");
+    }
+
+    @Override
+    public JSONObject toJSON() {
+        JSONObject data = new JSONObject();
+
+        try {
+            data.put("code", code);
+            data.put("day", day);
+            data.put("high", highest);
+            data.put("low", lowest);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return data;
     }
 }

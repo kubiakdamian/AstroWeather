@@ -17,10 +17,11 @@ import com.example.damian.astroweather.data.Atmosphere;
 import com.example.damian.astroweather.data.Channel;
 import com.example.damian.astroweather.data.Item;
 import com.example.damian.astroweather.data.Wind;
+import com.example.damian.astroweather.service.SavedWeather;
 import com.example.damian.astroweather.service.WeatherCallback;
 import com.example.damian.astroweather.service.YahooWeather;
 
-public class BasicFragment extends Fragment implements WeatherCallback {
+public class BasicFragment extends Fragment implements WeatherCallback, SunInfoCallback {
     View view;
     private ImageView weatherIcon;
     private TextView temperature;
@@ -33,6 +34,8 @@ public class BasicFragment extends Fragment implements WeatherCallback {
     private TextView speed;
 
     private YahooWeather yahooWeather;
+    private SavedWeather savedWeather;
+    private SunInfo sunInfo;
 
     @Nullable
     @Override
@@ -54,31 +57,40 @@ public class BasicFragment extends Fragment implements WeatherCallback {
         speed = view.findViewById(R.id.speedid);
 
         yahooWeather = new YahooWeather(this);
+        savedWeather = new SavedWeather(getActivity());
         yahooWeather.refreshWeather(YahooWeather.getLocation());
+        sunInfo = SunInfo.getSunInfoInstance();
+        sunInfo.registerForUpdates(this);
     }
 
     @Override
     public void serviceSuccess(Channel channel) {
-        Item item = channel.getItem();
-        Atmosphere atmosphere = channel.getAtmosphere();
-        Wind wind = channel.getWind();
-        int resourceId = getResources().getIdentifier("drawable/icon_" + item.getCondition().getCode(), null, getActivity().getPackageName()); //icons: http://vclouds.deviantart.com/gallery/#/d2ynulp
-        Drawable weatherIconDrawable = getResources().getDrawable(resourceId, null);
-        weatherIcon.setImageDrawable(weatherIconDrawable);
+        if(isAdded()) {
+            Item item = channel.getItem();
+            Atmosphere atmosphere = channel.getAtmosphere();
+            Wind wind = channel.getWind();
+            int resourceId = getResources().getIdentifier("drawable/icon_" + item.getCondition().getCode(), null, getActivity().getPackageName()); //icons: http://vclouds.deviantart.com/gallery/#/d2ynulp
+            Drawable weatherIconDrawable = getResources().getDrawable(resourceId, null);
+            weatherIcon.setImageDrawable(weatherIconDrawable);
 
-        temperature.setText(item.getCondition().getTemperature() + "\u00B0" + channel.getUnits().getTemperature());
-        condition.setText(item.getCondition().getDescription());
-        location.setText(channel.getLocation().getCity());
-        longitude.setText(item.getLongitude());
-        latitiude.setText(item.getLatitude());
-        humidity.setText(atmosphere.getHumidity());
-        pressure.setText(atmosphere.getPressure());
-        speed.setText(wind.getSpeed());
+            temperature.setText(item.getCondition().getTemperature() + "\u00B0" + channel.getUnits().getTemperature());
+            condition.setText(item.getCondition().getDescription());
+            location.setText(channel.getLocation().getCity());
+            longitude.setText(item.getLongitude());
+            latitiude.setText(item.getLatitude());
+            humidity.setText(atmosphere.getHumidity());
+            pressure.setText(atmosphere.getPressure());
+            speed.setText(wind.getSpeed());
+        }
     }
 
     @Override
     public void serviceFailure(Exception exception) {
-        Activity activity = getActivity();
-        Toast.makeText(activity, exception.getMessage(), Toast.LENGTH_SHORT).show();
+        savedWeather.load(this);
+    }
+
+    @Override
+    public void onSettingsUpdate() {
+        yahooWeather.refreshWeather(YahooWeather.getLocation());
     }
 }

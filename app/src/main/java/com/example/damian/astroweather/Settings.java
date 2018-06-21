@@ -233,10 +233,6 @@ public class Settings extends AppCompatActivity implements WeatherCallback{
                         addNewLocation();
                         YahooWeather.setLocation(newlocation.getText().toString());
                         break;
-
-                    case DialogInterface.BUTTON_NEGATIVE:
-                        //No button clicked
-                        break;
                 }
             }
         };

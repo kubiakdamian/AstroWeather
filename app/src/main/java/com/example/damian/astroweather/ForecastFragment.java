@@ -17,12 +17,16 @@ import android.widget.Toast;
 
 import com.example.damian.astroweather.data.Channel;
 import com.example.damian.astroweather.data.Item;
+import com.example.damian.astroweather.service.SavedWeather;
 import com.example.damian.astroweather.service.WeatherCallback;
 import com.example.damian.astroweather.service.YahooWeather;
 
-public class ForecastFragment extends Fragment implements WeatherCallback {
+public class ForecastFragment extends Fragment implements WeatherCallback, SunInfoCallback {
     View view;
     private YahooWeather yahooWeather;
+    private SavedWeather savedWeather;
+    private SunInfo sunInfo;
+
     private TextView location;
     private TextView firstDay;
     private ImageView firstImg;
@@ -67,7 +71,10 @@ public class ForecastFragment extends Fragment implements WeatherCallback {
         fifthTemp = view.findViewById(R.id.fifthTemp);
 
         yahooWeather = new YahooWeather(this);
+        savedWeather = new SavedWeather(getActivity());
         yahooWeather.refreshWeather(YahooWeather.getLocation());
+        sunInfo = SunInfo.getSunInfoInstance();
+        sunInfo.registerForUpdates(this);
     }
 
     @SuppressLint("SetTextI18n")
@@ -96,8 +103,7 @@ public class ForecastFragment extends Fragment implements WeatherCallback {
 
     @Override
     public void serviceFailure(Exception exception) {
-        Activity activity = getActivity();
-        Toast.makeText(activity, exception.getMessage(), Toast.LENGTH_SHORT).show();
+        savedWeather.load(this);
     }
 
     private Drawable getWeatherIcon(Item item, int number){
@@ -106,5 +112,10 @@ public class ForecastFragment extends Fragment implements WeatherCallback {
         Drawable weatherIconDrawable = getResources().getDrawable(resourceId, null);
 
         return weatherIconDrawable;
+    }
+
+    @Override
+    public void onSettingsUpdate() {
+        yahooWeather.refreshWeather(YahooWeather.getLocation());
     }
 }

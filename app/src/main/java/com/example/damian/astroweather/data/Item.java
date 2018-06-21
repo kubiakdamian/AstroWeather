@@ -46,4 +46,22 @@ public class Item implements JSONPopulator {
             }
         }
     }
+
+    @Override
+    public JSONObject toJSON(){
+        JSONObject data = new JSONObject();
+        try {
+            data.put("lat", latitude);
+            data.put("long", longitude);
+            data.put("condition",condition.toJSON());
+            JSONArray arr = new JSONArray();
+            for(int i=0; i < forecast.length; i++){
+                arr.put(forecast[i].toJSON());
+            }
+            data.put("forecast",arr);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
 }
