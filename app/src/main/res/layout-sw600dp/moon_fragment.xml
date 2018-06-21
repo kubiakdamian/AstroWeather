@@ -42,7 +42,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Moonrise:"
-                android:textColor="#000"
                 android:textSize="25sp"/>
 
             <TextView
@@ -50,7 +49,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:textColor="#000"
                 android:textSize="25sp"
                 android:gravity="end"/>
         </TableRow>
@@ -61,7 +59,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Moonset:"
-                android:textColor="#000"
                 android:textSize="25sp"/>
 
             <TextView
@@ -69,7 +66,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:textColor="#000"
                 android:textSize="25sp"
                 android:gravity="end"/>
         </TableRow>
@@ -80,7 +76,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="New moon:"
-                android:textColor="#000"
                 android:textSize="25sp"/>
 
             <TextView
@@ -88,7 +83,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:textColor="#000"
                 android:textSize="25sp"
                 android:gravity="end"/>
         </TableRow>
@@ -99,7 +93,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Full moon:"
-                android:textColor="#000"
                 android:textSize="25sp" />
 
             <TextView
@@ -107,7 +100,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:textColor="#000"
                 android:textSize="25sp"
                 android:gravity="end"/>
         </TableRow>
@@ -118,7 +110,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Phase:"
-                android:textColor="#000"
                 android:textSize="25sp" />
 
             <TextView
@@ -126,7 +117,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:textColor="#000"
                 android:textSize="25sp"
                 android:gravity="end"/>
         </TableRow>
@@ -137,7 +127,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Month day:"
-                android:textColor="#000"
                 android:textSize="25sp" />
 
             <TextView
@@ -145,7 +134,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:textColor="#000"
                 android:textSize="25sp"
                 android:gravity="end"/>
         </TableRow>
