@@ -78,8 +78,6 @@ public class SavedWeather {
                     weatherServiceCallback.serviceSuccess(channel);
                 }
             }
-
-
         }.execute(listener);
     }
 

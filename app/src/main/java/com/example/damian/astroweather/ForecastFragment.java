@@ -99,6 +99,8 @@ public class ForecastFragment extends Fragment implements WeatherCallback, SunIn
         fourthTemp.setText(item.getForecast()[3].getLowest() + "\u00B0" + channel.getUnits().getTemperature() + "/" + item.getForecast()[3].getHighest() + "\u00B0" + channel.getUnits().getTemperature());
         fifthDay.setText(item.getForecast()[4].getDay());
         fifthTemp.setText(item.getForecast()[4].getLowest() + "\u00B0" + channel.getUnits().getTemperature() + "/" + item.getForecast()[4].getHighest() + "\u00B0" + channel.getUnits().getTemperature());
+
+        savedWeather.save(channel);
     }
 
     @Override

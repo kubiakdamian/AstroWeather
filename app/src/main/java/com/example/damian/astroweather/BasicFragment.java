@@ -81,6 +81,8 @@ public class BasicFragment extends Fragment implements WeatherCallback, SunInfoC
             humidity.setText(atmosphere.getHumidity());
             pressure.setText(atmosphere.getPressure());
             speed.setText(wind.getSpeed());
+
+            savedWeather.save(channel);
         }
     }
 
