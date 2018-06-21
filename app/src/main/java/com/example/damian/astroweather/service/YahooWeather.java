@@ -31,14 +31,16 @@ public class YahooWeather {
         new AsyncTask<String, Void, String>() {
             @Override
             protected String doInBackground(String... strings) {
+                String unit = getUnit().equalsIgnoreCase("f") ? "f" : "c";
                 String YQL = String.format("select * from weather.forecast where woeid in (select woeid from geo.places(1) where text=\"%s\") and u='" + unit + "'", location);
-
                 String endpoint = String.format("https://query.yahooapis.com/v1/public/yql?q=%s&format=json", Uri.encode(YQL));
 
                 try {
                     URL url = new URL(endpoint);
+                    InputStream inputStream = null;
                     URLConnection connection = url.openConnection();
-                    InputStream inputStream = connection.getInputStream();
+                    inputStream = connection.getInputStream();
+
                     BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
                     StringBuilder result = new StringBuilder();
                     String line;
@@ -62,16 +64,22 @@ public class YahooWeather {
 
                 try {
                     JSONObject data = new JSONObject(s);
-
                     JSONObject queryResults = data.optJSONObject("query");
                     int count = queryResults.optInt("count");
+
                     if(count == 0){
                         weatherCallback.serviceFailure(new LocationWatherEcception("No weather information found for " + location));
                         return;
                     }
 
                     Channel channel = new Channel();
-                    channel.populate(queryResults.optJSONObject("results").optJSONObject("channel"));
+                    JSONObject test = queryResults.optJSONObject("results").optJSONObject("channel");
+                    if(test.isNull("title") || !test.has("title")){
+                        weatherCallback.serviceFailure(new LocationWatherEcception("No weather information found for: " + location));
+                    }else {
+                        channel.populate(queryResults.optJSONObject("results").optJSONObject("channel"));
+                        weatherCallback.serviceSuccess(channel);
+                    }
 
                     weatherCallback.serviceSuccess(channel);
                 } catch (JSONException e) {

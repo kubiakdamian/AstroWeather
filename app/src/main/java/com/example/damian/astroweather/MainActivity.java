@@ -1,6 +1,8 @@
 package com.example.damian.astroweather;
 
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -10,16 +12,21 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.example.damian.astroweather.service.NetworkReceiver;
+
 public class MainActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    private NetworkReceiver networkReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tabLayout = findViewById(R.id.tablelayoutid);
+        networkReceiver = new NetworkReceiver();
+        registerReceiver(networkReceiver,new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
         initToolbar();
         if(!getResources().getBoolean(R.bool.isTablet)){
             setAdapter();
@@ -74,5 +81,11 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitleTextColor(getResources().getColor(R.color.colorPrimaryDark));
         setSupportActionBar(toolbar);
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        unregisterReceiver(networkReceiver);
     }
 }
