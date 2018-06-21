@@ -3,7 +3,7 @@
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="top"
-    android:background="@color/moonFragmentBackground">
+    android:background="@color/sunFragmentBackground">
 
 
     <LinearLayout
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Moon"
-            android:textColor="#fff"
+            android:textColor="#000"
             android:textSize="30sp"
             android:textStyle="bold"/>
 
@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Moonrise:"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:textSize="25sp"/>
 
             <TextView
@@ -50,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:textSize="25sp"
                 android:gravity="end"/>
         </TableRow>
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Moonset:"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:textSize="25sp"/>
 
             <TextView
@@ -69,7 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:textSize="25sp"
                 android:gravity="end"/>
         </TableRow>
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="New moon:"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:textSize="25sp"/>
 
             <TextView
@@ -88,7 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:textSize="25sp"
                 android:gravity="end"/>
         </TableRow>
@@ -99,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Full moon:"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:textSize="25sp" />
 
             <TextView
@@ -107,7 +107,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:textSize="25sp"
                 android:gravity="end"/>
         </TableRow>
@@ -118,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Phase:"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:textSize="25sp" />
 
             <TextView
@@ -126,7 +126,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:textSize="25sp"
                 android:gravity="end"/>
         </TableRow>
@@ -137,7 +137,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Month day:"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:textSize="25sp" />
 
             <TextView
@@ -145,7 +145,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:textSize="25sp"
                 android:gravity="end"/>
         </TableRow>

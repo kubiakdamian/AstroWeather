@@ -4,11 +4,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Condition implements JSONPopulator {
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 
-    public int getTemperature() {
+    public String getTemperature() {
         return temperature;
     }
 
@@ -16,15 +16,15 @@ public class Condition implements JSONPopulator {
         return description;
     }
 
-    private int code;
-    private int temperature;
+    private String code;
+    private String temperature;
     private String description;
 
 
     @Override
     public void populate(JSONObject data) {
-        code = data.optInt("code");
-        temperature = data.optInt("temp");
+        code = data.optString("code");
+        temperature = data.optString("temp");
         description = data.optString("text");
     }
 

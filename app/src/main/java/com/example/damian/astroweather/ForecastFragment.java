@@ -110,10 +110,14 @@ public class ForecastFragment extends Fragment implements WeatherCallback, SunIn
 
     private Drawable getWeatherIcon(Item item, int number){
         int resourceId;
-        resourceId = getResources().getIdentifier("drawable/icon_" + item.getForecast()[number].getCode(), null, getActivity().getPackageName());
-        Drawable weatherIconDrawable = getResources().getDrawable(resourceId, null);
-
-        return weatherIconDrawable;
+        Activity activity = getActivity();
+        if(activity != null){
+            resourceId = getResources().getIdentifier("drawable/icon_" + item.getForecast()[number].getCode(), null, activity.getPackageName());
+            Drawable weatherIconDrawable = getResources().getDrawable(resourceId, null);
+            return weatherIconDrawable;
+        }else{
+            return null;
+        }
     }
 
     @Override

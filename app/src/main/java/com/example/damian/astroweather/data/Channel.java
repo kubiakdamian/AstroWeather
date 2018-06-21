@@ -47,11 +47,11 @@ public class Channel implements JSONPopulator {
         JSONObject data = new JSONObject();
 
         try {
-            data.put("atmosphere",atmosphere.toJSON());
-            data.put("wind",wind.toJSON());
-            data.put("units",units.toJSON());
-            data.put("item",item.toJSON());
-            data.put("location",location.toJSON());
+            data.put("atmosphere", atmosphere.toJSON());
+            data.put("wind", wind.toJSON());
+            data.put("units", units.toJSON());
+            data.put("item", item.toJSON());
+            data.put("location", location.toJSON());
         } catch (JSONException e) {
             e.printStackTrace();
         }
